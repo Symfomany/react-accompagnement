@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import i18n from "./i18n"; // initialized i18next instance
-
+import Moment from "react-moment";
+import "moment-timezone";
 const { Translate, Localize } = require("react-i18nify");
 
 class App extends Component {
@@ -17,10 +18,17 @@ class App extends Component {
   }
 
   render() {
+    const dateToFormat = 1523646256;
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <h1>
+            <Moment unix tz="Africa/Abidjan">
+              {dateToFormat}
+            </Moment>
+          </h1>
         </header>
         <Translate value="application.title" />
         <Translate value="application.title" />
